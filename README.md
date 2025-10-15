@@ -1,6 +1,6 @@
 Mock trial AI - See AIs debating
 
-Version: 1.0    
+Version: **1.0**   
 Utilizes Gemini API (instructions below)         
 
 ---------------------------------------------
