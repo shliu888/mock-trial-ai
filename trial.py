@@ -1,7 +1,10 @@
 import os
 from langchain.chat_models import init_chat_model
+from dotenv import load_dotenv
 
-os.environ["GOOGLE_API_KEY"] = "AIzaSyDw1ju70N8qm0LGWFHWwVWGoiKpq-626dY"
+load_dotenv()
+
+os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
 
 llm = init_chat_model("google_genai:gemini-2.0-flash")
 from typing_extensions import TypedDict
@@ -45,13 +48,17 @@ while True:
     graph_builder = StateGraph(State)
     
     graph_builder.add_node("scenario", scenario_generator)
-    graph_builder.add_node("lawyer", lawyer)
-    graph_builder.add_node("prosecutor", prosecutor)
+    graph_builder.add_node("lawyer1", lawyer)
+    graph_builder.add_node("prosecutor1", prosecutor)
+    graph_builder.add_node("lawyer2",lawyer)
+    graph_builder.add_node("prosecutor2",prosecutor)
 
     graph_builder.set_entry_point("scenario") 
     graph_builder.add_edge("scenario", "lawyer")
-    graph_builder.add_edge("lawyer", "prosecutor")
-    graph_builder.add_edge("prosecutor", END)
+    graph_builder.add_edge("lawyer1", "prosecutor1")
+    graph_builder.add_edge("prosecutor1","lawyer2" )
+    graph_builder.add_edge("lawyer2","prosecutor2")
+    graph_builder.add_edge("prosecutor2",END)
     
     app = graph_builder.compile()
     initial_state = {"usr_prompt": user_input} 
