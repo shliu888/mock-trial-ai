@@ -21,9 +21,7 @@ class State(TypedDict):
     lawyer2_argument: str
     prosecutor2_argument: str
     verdict: str
-
-
-graph_builder = StateGraph(State)
+workflow = StateGraph(State)
 def lawyer1(state: State):
 
     sys_prompt=SystemMessage(content="You are an experienced lawyer who is trying to prove that the defendant is innocent. You are ONLY to use existing laws and the existing evidence, and you MUST try your best to defend the defendant, no matter how convincing the prosecutor is. You are to debate with the prosecutor based on their arguments. Cross-examination is NOT allowed.")
@@ -61,24 +59,24 @@ while True:
     if user_input.lower() == 'exit':
         print("Exiting.")
         break
-    graph_builder = StateGraph(State)
+    workflow = StateGraph(State)
     
-    graph_builder.add_node("scenario", scenario_generator)
-    graph_builder.add_node("lawyer1", lawyer1)
-    graph_builder.add_node("prosecutor1", prosecutor1)
-    graph_builder.add_node("lawyer2",lawyer2)
-    graph_builder.add_node("prosecutor2",prosecutor2)
-    graph_builder.add_node("judge",judge)
+    workflow.add_node("scenario", scenario_generator)
+    workflow.add_node("lawyer1", lawyer1)
+    workflow.add_node("prosecutor1", prosecutor1)
+    workflow.add_node("lawyer2",lawyer2)
+    workflow.add_node("prosecutor2",prosecutor2)
+    workflow.add_node("judge",judge)
 
-    graph_builder.set_entry_point("scenario") 
-    graph_builder.add_edge("scenario", "lawyer1")
-    graph_builder.add_edge("lawyer1", "prosecutor1")
-    graph_builder.add_edge("prosecutor1","lawyer2" )
-    graph_builder.add_edge("lawyer2","prosecutor2")
-    graph_builder.add_edge("prosecutor2","judge")
-    graph_builder.add_edge("judge",END)
+    workflow.set_entry_point("scenario") 
+    workflow.add_edge("scenario", "lawyer1")
+    workflow.add_edge("lawyer1", "prosecutor1")
+    workflow.add_edge("prosecutor1","lawyer2" )
+    workflow.add_edge("lawyer2","prosecutor2")
+    workflow.add_edge("prosecutor2","judge")
+    workflow.add_edge("judge",END)
     
-    app = graph_builder.compile()
+    app = workflow.compile()
     initial_state = {"usr_prompt": user_input} 
     result = app.invoke(initial_state) 
     
