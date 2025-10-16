@@ -3,7 +3,7 @@
 --> Scenario Generator + Lawyer + Prosecutor + Judge !!        
 
 ![Static Badge](https://img.shields.io/badge/Version-1.1-blue)         
-Utilizes Gemini & OpenAI API keys (instructions below)         
+Utilizes Gemini API (instructions below)         
 
 ---------------------------------------------
 **How to set up**:
@@ -18,11 +18,9 @@ Utilizes Gemini & OpenAI API keys (instructions below)
 
 5. Obtain a Gemini API key through https://aistudio.google.com/app/api-keys       
 
-6. Get an OpenAI API key through https://openai.com/api/ (login with your ChatGPT account)      
+6. Input your API key in the space in the .env file      
 
-7. Input your API keys in the space in the .env file      
-
-8. Run trial.py!     
+7. Run trial.py!     
 
 ---------------------------------------------
 
