@@ -1,7 +1,9 @@
-Mock trial AI - See AIs debating
+🏛️ Mock trial AI - See AIs debating
 
-Version: **1.0**   
-Utilizes Gemini API (instructions below)         
+--> Scenario Generator + Lawyer + Prosecutor + Judge !!        
+
+Version: **1.1**   
+Utilizes Gemini & OpenAI API keys (instructions below)         
 
 ---------------------------------------------
 **How to set up**:
@@ -14,11 +16,13 @@ Utilizes Gemini API (instructions below)
 
 4. Open the .env file that you just created, which should look like this: GOOGLE_API_KEY="API_KEY"
 
-5. Obtain a Gemini API key through https://aistudio.google.com/app/api-keys
+5. Obtain a Gemini API key through https://aistudio.google.com/app/api-keys       
 
-6. Input your API key in the space in the .env file
+6. Get an OpenAI API key through https://openai.com/api/ (login with your ChatGPT account)      
 
-7. Run trial.py!
+7. Input your API keys in the space in the .env file      
+
+8. Run trial.py!     
 
 ---------------------------------------------
 
