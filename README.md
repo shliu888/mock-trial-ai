@@ -2,7 +2,7 @@
 
 --> Scenario Generator + Lawyer + Prosecutor + Judge !!        
 
-[Version: **1.1** ](https://img.shields.io/badge/Version-1.1-blue)   
+![Static Badge](https://img.shields.io/badge/Version-1.1-blue)         
 Utilizes Gemini & OpenAI API keys (instructions below)         
 
 ---------------------------------------------
